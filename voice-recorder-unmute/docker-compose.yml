@@ -1,0 +1,9 @@
+version: '3'
+services:
+  heyswansea:
+    container_name: heyswansea
+    build: ./
+    volumes:
+      - ~/data/heyswansea:/app/instance/uploads
+    ports:
+      - '8080:80'
