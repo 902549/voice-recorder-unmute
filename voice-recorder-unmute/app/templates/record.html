@@ -3,22 +3,24 @@
 <body>
   <section class="section">
     <div class="container has-text-centered">
+      <h2 id="recheader" class="is-hidden">Step 1: Begin Recording</h2>
       <p id="recmessage" class="is-hidden is-size-5">
         <img src={{image_url}} class="img"/><br>
         <input type="hidden" name="image_id" value='{{ image_id }}'>
         <i>Tap <svg width="22" height="24" viewBox="0 -1 28 28"><defs><path id="mic-path21" d="M9.333 18.667A4.68 4.68 0 0 0 14 14V4.667A4.68 4.68 0 0 0 9.333 0a4.68 4.68 0 0 0-4.666 4.667V14a4.68 4.68 0 0 0 4.666 4.667zM7 4.667a2.34 2.34 0 0 1 2.333-2.334 2.34 2.34 0 0 1 2.334 2.334V14a2.34 2.34 0 0 1-2.334 2.333A2.34 2.34 0 0 1 7 14V4.667zm11.667 7V14c0 4.783-3.617 8.633-8.167 9.217v2.45H14c.7 0 1.167.466 1.167 1.166S14.7 28 14 28H4.667c-.7 0-1.167-.467-1.167-1.167s.467-1.166 1.167-1.166h3.5v-2.45C3.617 22.633 0 18.667 0 14v-2.333c0-.7.467-1.167 1.167-1.167s1.166.467 1.166 1.167V14c0 3.85 3.15 7 7 7s7-3.15 7-7v-2.333c0-.7.467-1.167 1.167-1.167s1.167.467 1.167 1.167z"></path></defs><g fill="none" fill-rule="evenodd" transform="translate(5)"><mask id="mic-mask21" fill="#fff"><use xlink:href="#mic-path21"></use></mask><use xlink:href="#mic-path21"></use><g fill="#FF4F5E" mask="url(#mic-mask21)"><path d="M-5 0h28v28H-5z"></path></g></g></svg>
           and then describe the image/video:</i>
       </p>
+      <h2 id="stopheader" class="is-hidden">Step 2: Stop Recording</h2>
       <p id="stopmessage" class="is-hidden is-size-5">
         <img src={{image_url}} class="img"/><br>
         <i>Tap <svg width="20" height="22" viewBox="0 -2 26 26"><defs><path id="stop-path6" d="M19.833 0H3.5C1.517 0 0 1.517 0 3.5v16.333c0 1.984 1.517 3.5 3.5 3.5h16.333c1.984 0 3.5-1.516 3.5-3.5V3.5c0-1.983-1.516-3.5-3.5-3.5zM21 19.833c0 .7-.467 1.167-1.167 1.167H3.5c-.7 0-1.167-.467-1.167-1.167V3.5c0-.7.467-1.167 1.167-1.167h16.333c.7 0 1.167.467 1.167 1.167v16.333z"></path></defs><g fill="none" fill-rule="evenodd" transform="translate(2.333 2.333)"><mask id="stop-mask6" fill="#fff"><use xlink:href="#stop-path6"></use></mask><g fill="#FF4F5E" mask="url(#stop-mask6)"><path d="M-2.333-2.333h28v28h-28z"></path></g></g></svg>
           when you are done.</i>
       </p>
-      <p id="currentword" class="title py-6"></p>
+      <p id="currentword" class="hidden"></p>
       <p id="recordprogress" class="hidden">
       </p>
       <button class="button is-large is-rounded" id="recstart">
-        <svg id="recicon" width="29" height="28" viewBox="0 0 29 28"><defs><path id="mic-path6" d="M9.333 18.667A4.68 4.68 0 0 0 14 14V4.667A4.68 4.68 0 0 0 9.333 0a4.68 4.68 0 0 0-4.666 4.667V14a4.68 4.68 0 0 0 4.666 4.667zM7 4.667a2.34 2.34 0 0 1 2.333-2.334 2.34 2.34 0 0 1 2.334 2.334V14a2.34 2.34 0 0 1-2.334 2.333A2.34 2.34 0 0 1 7 14V4.667zm11.667 7V14c0 4.783-3.617 8.633-8.167 9.217v2.45H14c.7 0 1.167.466 1.167 1.166S14.7 28 14 28H4.667c-.7 0-1.167-.467-1.167-1.167s.467-1.166 1.167-1.166h3.5v-2.45C3.617 22.633 0 18.667 0 14v-2.333c0-.7.467-1.167 1.167-1.167s1.166.467 1.166 1.167V14c0 3.85 3.15 7 7 7s7-3.15 7-7v-2.333c0-.7.467-1.167 1.167-1.167s1.167.467 1.167 1.167z"></path></defs><g fill="none" fill-rule="evenodd" transform="translate(5)"><mask id="mic-mask6" fill="#fff"><use xlink:href="#mic-path6"></use></mask><use xlink:href="#mic-path6"></use><g fill="#FF4F5E" mask="url(#mic-mask6)"><path d="M-5 0h28v28H-5z"></path></g></g></svg></button>
+        <svg id="recicon" width="29" height="28" viewBox="0 0 29 28"><defs><path id="mic-path6" d="M9.333 18.667A4.68 4.68 0 0 0 14 14V4.667A4.68 4.68 0 0 0 9.333 0a4.68 4.68 0 0 0-4.666 4.667V14a4.68 4.68 0 0 0 4.666 4.667zM7 4.667a2.34 2.34 0 0 1 2.333-2.334 2.34 2.34 0 0 1 2.334 2.334V14a2.34 2.34 0 0 1-2.334 2.333A2.34 2.34 0 0 1 7 14V4.667zm11.667 7V14c0 4.783-3.617 8.633-8.167 9.217v2.45H14c.7 0 1.167.466 1.167 1.166S14.7 28 14 28H4.667c-.7 0-1.167-.467-1.167-1.167s.467-1.166 1.167-1.166h3.5v-2.45C3.617 22.633 0 18.667 0 14v-2.333c0-.7.467-1.167 1.167-1.167s1.166.467 1.166 1.167V14c0 3.85 3.15 7 7 7s7-3.15 7-7v-2.333c0-.7.467-1.167 1.167-1.167s1.167.467 1.167 1.167z"></path></defs><g fill="none" fill-rule="evenodd" transform="translate(5)"><mask id="mic-mask6" fill="#fff"><use xlink:href="#mic-path6"></use></mask><use xlink:href="#mic-path6"></use><g fill="#FF4F5E" mask="url(#mic-mask6)"><path d="M-5 0h28v28H-5z"></path></g></g></svg>
       </button>
       <button class="button is-hidden is-large is-rounded" id="recstop" >
         <svg id="stopicon" width="28" height="28" viewBox="0 0 28 28"><defs><path id="stop-path10" d="M19.833 0H3.5C1.517 0 0 1.517 0 3.5v16.333c0 1.984 1.517 3.5 3.5 3.5h16.333c1.984 0 3.5-1.516 3.5-3.5V3.5c0-1.983-1.516-3.5-3.5-3.5zM21 19.833c0 .7-.467 1.167-1.167 1.167H3.5c-.7 0-1.167-.467-1.167-1.167V3.5c0-.7.467-1.167 1.167-1.167h16.333c.7 0 1.167.467 1.167 1.167v16.333z"></path></defs><g fill="none" fill-rule="evenodd" transform="translate(2.333 2.333)"><mask id="stop-mask10" fill="#fff"><use xlink:href="#stop-path10"></use></mask><g fill="#FF4F5E" mask="url(#stop-mask10)"><path d="M-2.333-2.333h28v28h-28z"></path></g></g></svg>
@@ -28,16 +30,21 @@
       <button class="delete"></button>
       <p id="errormsg"></p>
     </div>
-    <div id="recordingscompletemsg" class="notification py-4">
-      <p class="is-size-2 py-6">
-        Thank you for contributing <i>your</i> voice!
+    <h2 id="completeheader" class="is-hidden">Step 3: Review Clips</h2>
+    <div id="recordingscompletemsg" class="is-hidden">
+      <p class="is-size-5">
+        <i>If you are happy with your recording, press
+          <span class="material-symbols-outlined" style="font-size: 26px">
+            done
+          </span>
+          to upload your voice recordings.</i>
       </p>
       <p class="is-size-5">
-        <i>Tap <span class="material-symbols-outlined" style="font-size: 26px"> upload </span>
-           when you are ready to upload your voice recordings.</i>
-      </p>
-      <p class="is-size-6">
-        <i>You can review & re-record individual voice clips below, if needed.</i>
+        <i>Otherwise, press
+          <span class="material-symbols-outlined" style="font-size: 26px">
+            delete
+          </span>
+          to delete your recording and start again</i>
       </p>
       <div class="column is-half is-offset-3">
         <h2 class="title is-3">Voice Clips</h2>
@@ -46,13 +53,15 @@
           </p>
           <div class="recordings" id="recordings"></div>
       </div>
-      <button class="button is-large is-rounded" id="submit">
+      <button class="button is-large is-rounded" id="deletebutton">
         <span class="material-symbols-outlined">
-          upload
+          delete
         </span>
       </button>
-      <button class="hidden-button" id="submit">
-
+      <button class="button is-large is-rounded" id="submit">
+        <span class="material-symbols-outlined">
+          done
+        </span>
       </button>
       <progress class="progress is-success" id="uploadprogress" value="1" max="100"/>
     </div>

@@ -17,9 +17,13 @@ var errornotification = document.getElementById('errornotification');
 var errormsg = document.getElementById('errormsg');
 var stopicon = document.getElementById('stopicon');
 var recmessage = document.getElementById('recmessage');
+var recheader = document.getElementById('recheader');
 var stopmessage = document.getElementById('stopmessage');
+var stopheader = document.getElementById('stopheader');
 var canvas = document.getElementById('visualizer');
 var recordingscompletemsg = document.getElementById('recordingscompletemsg');
+var completeheader = document.getElementById('completeheader');
+
 
 // // Word variables
 const wantedWords = [' '];
@@ -100,11 +104,14 @@ function updateUI() {
   visualizer.classList.toggle("is-hidden", isAllRecorded());
   recordprogress.classList.toggle("is-hidden", isAllRecorded());
   recordingscompletemsg.classList.toggle("is-hidden", !isAllRecorded());
+  completeheader.classList.toggle("is-hidden", !isAllRecorded());
   submit.classList.toggle("is-hidden", !isAllRecorded());
   submit.classList.toggle("is-loading", isUploading);
   uploadprogress.classList.toggle("is-hidden", !isUploading);
   recmessage.classList.toggle("is-hidden", isRecording() || isAllRecorded());
+  recheader.classList.toggle("is-hidden", isRecording() || isAllRecorded());
   stopmessage.classList.toggle("is-hidden", !isRecording() || isAllRecorded());
+  stopheader.classList.toggle("is-hidden", !isRecording() || isAllRecorded());
   recstart.classList.toggle("is-hidden", isRecording() || isAllRecorded());
   recstop.classList.toggle("is-hidden", !isRecording() || isAllRecorded());
   // recordprogress.innerHTML = `Clip: ` + `${wantedWords.length - remainingWords.length + 1} / ${wantedWords.length}`.bold();
@@ -216,6 +223,11 @@ function recordAudio() {
     updateUI();
   };
   recorderDataAvailableListener = e => {
+    if(isRecording()){
+      stopRecording(remainingWords[0]);
+      remainingWords = remainingWords.slice(1);
+      updateUI();
+    };
     chunks.push(e.data);
     debugLog("Audio data available");
   };
@@ -227,13 +239,13 @@ function recordAudio() {
   //   debugLog("Audio data available");
   // }
   // Finally, start it up.
-  // We want to be able to record up to 10 minutes of audio in a single blob.
+  // We want to be able to record up to 2 minutes of audio in a single blob.
   // Without this argument to start(), Chrome will call dataavailable
   // very frequently.
   debugLog("Starting recorder");
 
   jsNode.onaudioprocess = analyze;
-  recorder.start(600000);
+  recorder.start(120000);
 }
 
 function stopRecording(word) {
@@ -267,6 +279,7 @@ function addRecordedWord(word, url) {
   var clipLabel = document.createElement('p');
   var buttonContainer = document.createElement('div');
   var deleteButton = document.createElement('button');
+  var deleteButton1 = document.getElementById('deletebutton');
 
   mediaContainer.classList.add('media');
   mediaContainer.classList.add('pt-5');
@@ -282,6 +295,10 @@ function addRecordedWord(word, url) {
     evtTgt.parentNode.parentNode.parentNode.removeChild(evtTgt.parentNode.parentNode);
     remainingWords.push(word);
     updateUI();
+  }
+
+  deleteButton1.onclick = function(e) {
+    deleteButton.click();
   }
   mediaContentContainer.appendChild(audio);
   mediaContentContainer.appendChild(clipLabel);
